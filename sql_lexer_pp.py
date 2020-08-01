@@ -1,0 +1,10 @@
+p_lexer_sql_identifier = lambda a, b: ("identifier", "".join(flatten_list(a)))
+p_lexer_sql_space = lambda a, b: ("space", "".join(flatten_list(a)))
+p_lexer_sql_string = lambda a, b: ("string", "".join(flatten_list(a)))
+p_lexer_sql_number = lambda a, b: ("number", "".join(flatten_list(a)))
+p_lexer_sql_quoted = lambda a, b: ("quoted", "".join(flatten_list(a)))
+p_lexer_sql_bracketed = lambda a, b: ("bracketed", "".join(flatten_list(a)))
+p_lexer_sql_line_comment = lambda a, b: ("line_comment", "".join(flatten_list(a)))
+p_lexer_sql_block_comment = lambda a, b: ("block_comment", "".join(flatten_list(a)))
+p_lexer_symbol = lambda a, b: ("symbol", "".join(flatten_list(a)))
+p_lexer = lambda a, b: [e for e in flatten_list(b) if e[0] not in ("space", "line_comment", "block_comment")]
